@@ -1,40 +1,51 @@
 #include <iostream>
-#include <iomanip>
-#include <conio.h>
-#include <fstream>
 
-#include "admin_auth.h"
-#include "include/draw.h"
+using namespace std;
 
 int main()
 {
     system("clear");
 
-    std::cout << "CINEMA MANAGEMENT SYSTEM" << std::endl << std::endl;
+    cout << "##############################################" << endl << endl;
+    cout << "######### CINEMA REGISTRATION SYSTEM #########" << endl << endl;
+    cout << "##############################################" << endl;
+    cout << "# 1. MOVIE REGISTRATION                      #" << endl;
+    cout << "# 2. CUSTOMER REGISTRATION                   #" << endl;
+    cout << "# 3. MOVIES LIST                             #" << endl;
+    cout << "# 4. CUSTOMER LIST                           #" << endl;
+    cout << "# 5. SEAT REGISTRATION                       #" << endl;
+    cout << "# 6. DAILY PROFIT REPORT                     #" << endl;
+    cout << "# 7. QUIT                                    #" << endl;
+    cout << "##############################################" << endl;
 
-    std::cout << "1. Sign up";
-    if (signedUp()) std::cout << " (Admin already signed up, you can edit credentials after signing in.)";
-    std::cout << std::endl;
-
-    std::cout << "2. Sign in" << std::endl;
-    std::cout << "\n\n > "; unsigned choice; std::cin >> choice;
+INPUT:
+    cout << "\n > "; unsigned choice; cin >> choice;
 
     switch (choice)
     {
     case 1:
-        if (!signedUp())
-            newAdminSignUp();
-        else
-            main();
+        // movie_registration();
         break;
-        
     case 2:
-        if (adminSignIn())
-            if (!mainMenu())
-                main();
+        // customer_registration();
         break;
-            
+    case 3:
+        // movie_list();
+        break;
+    case 4:
+        // customer_list();
+        break;
+    case 5:
+        // seat_reservation();
+        break;
+    case 6:
+        // profit_report();
+        break;
+    case 7:
+        cout << "Closing..." << endl;
+        return 0;
     default:
-        break;
+        cout << "\n*Invalid Input*" << endl;
+        goto INPUT;
     }
 }
