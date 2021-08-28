@@ -1,5 +1,7 @@
 #include <iostream>
 
+#include "include/CustomerList.h"
+
 using namespace std;
 
 int main()
@@ -18,7 +20,7 @@ int main()
     cout << "# 7. QUIT                                    #" << endl;
     cout << "##############################################" << endl;
 
-INPUT:
+INPUT0:
     cout << "\n > "; unsigned choice; cin >> choice;
 
     switch (choice)
@@ -33,7 +35,7 @@ INPUT:
         // movie_list();
         break;
     case 4:
-        // customer_list();
+        customer_list();
         break;
     case 5:
         // seat_reservation();
@@ -46,6 +48,6 @@ INPUT:
         return 0;
     default:
         cout << "\n*Invalid Input*" << endl;
-        goto INPUT;
+        goto INPUT0;
     }
 }
