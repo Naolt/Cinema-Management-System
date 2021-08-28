@@ -11,6 +11,14 @@ using namespace std;
 
 enum ORDER {NORM, NAME_ASC, NAME_DES, AGE_ASC, AGE_DES};
 
+template <typename T>
+void swap(T& one, T& other)
+{
+    T temp = one;
+    one = other;
+    other = temp;
+}
+
 void customer_list(Customer& customers[], ORDER order = NORM)
 {
     system("clear");
@@ -30,14 +38,8 @@ void customer_list(Customer& customers[], ORDER order = NORM)
         Customer n_a_customers[] = customers;
         for (int i = 0; i < n_a_customers.size(); i++)
             for (int j = 0; j < i; j++)
-            {
                 if (n_a_customers[i].name[0] < n_a_customers[j].name[0])
-                {
-                    string temp = n_a_customers[i].name;
-                    n_a_customers[i].name = n_a_customers[j].name;
-                    n_a_customers[j].name = temp;
-                }
-            }
+                   swap(n_a_customers[i].name, n_a_customers[j].name);
         
         customer_list(n_a_customers);
         break;
@@ -46,14 +48,8 @@ void customer_list(Customer& customers[], ORDER order = NORM)
         Customer n_d_customers[] = customers;
         for (int i = 0; i < n_d_customers.size(); i++)
             for (int j = 0; j < i; j++)
-            {
                 if (n_d_customers[i].name[0] > n_d_customers[j].name[0])
-                {
-                    string temp = n_d_customers[i].name;
-                    n_d_customers[i].name = n_d_customers[j].name;
-                    n_d_customers[j].name = temp;
-                }
-            }
+                    swap(n_d_customers[i].name, n_d_customers[j].name);
         
         customer_list(n_d_customers);
         break;
@@ -62,14 +58,8 @@ void customer_list(Customer& customers[], ORDER order = NORM)
         Customer a_a_customers[] = customers;
         for (int i = 0; i < a_a_customers.size(); i++)
             for (int j = 0; j < i; j++)
-            {
                 if (a_a_customers[i].age < a_a_customers[j].age)
-                {
-                    string temp = a_a_customers[i].age;
-                    a_a_customers[i].age = a_a_customers[j].age;
-                    a_a_customers[j].age = temp;
-                }
-            }
+                    swap(a_a_customers[i].age, n_a_customers[j].age);
         
         customer_list(a_a_customers);
         break;
@@ -78,16 +68,11 @@ void customer_list(Customer& customers[], ORDER order = NORM)
         Customer a_d_customers[] = customers;
         for (int i = 0; i < a_d_customers.size(); i++)
             for (int j = 0; j < i; j++)
-            {
                 if (a_d_customers[i].age > a_d_customers[j].age)
-                {
-                    string temp = a_d_customers[i].age;
-                    a_d_customers[i].age = a_d_customers[j].age;
-                    a_d_customers[j].age = temp;
-                }
-            }
+                    swap(a_d_customers[i].name, a_d_customers[j].name);
         
         customer_list(a_d_customers);
+        break;
     }
 
     cout << "########################" << endl << endl;
